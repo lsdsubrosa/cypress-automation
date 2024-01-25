@@ -1,4 +1,4 @@
-####*several simple examples of cypress automation*
+***several simple examples of cypress automation***
 
 **path:**
 
