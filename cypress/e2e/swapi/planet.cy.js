@@ -1,6 +1,13 @@
 import '@bahmutov/cy-api'
 
+const baseUrl = 'https://swapi.py4e.com/api/' // адрес апи
+
 describe('SWAPI', () => {
+    beforeEach(() => {
+        Cypress.config('baseUrl', baseUrl) // добавляем адрес апи в конфиг
+        cy.viewport(400, 600) // настраиваем размер экрана
+    })
+
     // контейнер для планет
     context('planets data', () => {
         it('check response, body', () => {
