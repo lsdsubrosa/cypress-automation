@@ -1,4 +1,4 @@
-#### Simple cypress automation for websites and api ####
+#### Simple cypress automation for websites & API ####
 
 **tests:**
 
