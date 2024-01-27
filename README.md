@@ -11,4 +11,8 @@
 
 [1]: https://kot.qa.studio/kot/edu/postcard/c28db484-454f-4450-bb46-60eddca1ebba/
 [2]: https://miro.com/app/board/uXjVMhjb6NQ=/?moveToWidget=3458764568902140034&cot=14
+<<<<<<< HEAD
 [3]: https://app.qase.io/project/APQSP
+=======
+[3]: https://app.qase.io/project/APQSP
+>>>>>>> e92697c4d80ea7805e0856e3557fe050cac711e1
