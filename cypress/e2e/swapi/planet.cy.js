@@ -9,7 +9,7 @@ describe('SWAPI. Check planets', () => {
     })
 
     // just for example
-    context('Try create pre-request for some data', () => {
+    context('Try to create pre-request for some data', () => {
         it('find planet number', () => {
             cy.request('GET', '/planets/').then((res) => {
                 const planetName = 'Endor'
