@@ -1,3 +1,3 @@
 *SWAPI [documentation][1]*
 
-[1]: https://swapi.py4e.com/
+[1]: https://swapi.py4e.com/documentation
