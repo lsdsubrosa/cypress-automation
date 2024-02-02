@@ -6,7 +6,7 @@
 
 `npm install --save-dev @bahmutov/cy-api`
 
-**tests:**
+*tests you can find in:*
 
     cypress/
       e2e/
