@@ -1,4 +1,4 @@
-#### Simple cypress automation for websites & API ####
+### Simple cypress automation for websites & API ###
 
 *before run install next packages in your project folder*
 
