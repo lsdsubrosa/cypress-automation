@@ -4,7 +4,7 @@
 
     project-folder/
         npm install --save-dev cypress
-        npm install npm install --save-dev @bahmutov/cy-api
+        npm install --save-dev @bahmutov/cy-api
 
 **tests:**
 
