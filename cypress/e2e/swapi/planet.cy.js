@@ -2,13 +2,13 @@ import '@bahmutov/cy-api';
 
 const baseUrl = 'https://swapi.py4e.com/api/';
 
-describe('SWAPI. Check planets', () => {
+describe('SWAPI. Planets', () => {
     beforeEach(() => {
         Cypress.config('baseUrl', baseUrl);
         cy.viewport(400, 600);
     });
 
-    // just for example
+    // pre-request for planet number by name. example
     context('Try to create pre-request for some data', () => {
         it('find planet number', () => {
             cy.request('GET', '/planets/').then((res) => {
@@ -34,7 +34,7 @@ describe('SWAPI. Check planets', () => {
 
     context('Planets data', () => {
         it('the Tatooine data', () => {
-            cy.request('GET', '/planets/1').then((res) => {
+            cy.request('GET', '/planets/1/').then((res) => {
                 expect(Object.keys(res.body).length).to.eq(14); // check quantity of properties
 
                 expect(res.body).to.have.property('name');
@@ -54,7 +54,7 @@ describe('SWAPI. Check planets', () => {
         });
 
         it('the Endor data', () => {
-            cy.request('GET', '/planets/7').then((res) => {
+            cy.request('GET', '/planets/7/').then((res) => {
                 expect(Object.keys(res.body).length).to.eq(14);
 
                 expect(res.body).to.have.property('name');
@@ -82,7 +82,7 @@ describe('SWAPI. Check planets', () => {
         it('planets data render', () => {
             cy.api({
                 method: 'GET',
-                url: '/planets/7'
+                url: '/planets/7/'
             });
         });
     });
