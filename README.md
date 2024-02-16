@@ -7,6 +7,7 @@
 `npm install --save-dev @bahmutov/cy-api`
 
 *Запуск в обычном режиме:*
+
 `npx cypress open`
 
 *Папки с тестами:*
