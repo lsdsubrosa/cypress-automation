@@ -1,14 +1,10 @@
 ### Тренировочные примеры автотестов для веб-сайтов и АПИ ###
 
 *Для работы требуется два пакета:*
+фреймворк: `npm install --save-dev cypress`
+отрисовка body запроса для АПИ, опционально: `npm install --save-dev @bahmutov/cy-api`
 
-`npm install --save-dev cypress`
-
-`npm install --save-dev @bahmutov/cy-api`
-
-*Запуск в обычном режиме:*
-
-`npx cypress open`
+Запуск в обычном режиме: `npx cypress open`
 
 *Папки с тестами:*
 
