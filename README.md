@@ -2,6 +2,7 @@
 
 *Для работы требуется два пакета:*
 фреймворк: `npm install --save-dev cypress`
+
 отрисовка body запроса для АПИ, опционально: `npm install --save-dev @bahmutov/cy-api`
 
 Запуск в обычном режиме: `npx cypress open`
