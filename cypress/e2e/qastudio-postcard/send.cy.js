@@ -9,7 +9,7 @@ describe('Проверка сайта для поздравлений', () => {
             cy.get('#email')
                 .scrollIntoView({duration: 500})
                 .should('exist')
-                .type('simple@example.com', { delay: 50 });
+                .type('simple@example.com', {delay: 50});
             cy.get(':nth-child(1) > .photo-input__photo')
                 .scrollIntoView({duration: 500})
                 .should('exist').click();
@@ -23,7 +23,7 @@ describe('Проверка сайта для поздравлений', () => {
         it('Валидная почта + кастомная открытка выбрана', () => {
             cy.get('#email').should('exist').type('simple@example.com');
             cy.get('#file').should('exist')
-                .selectFile('cypress/fixtures/postcard.png', { force: true});
+                .selectFile('cypress/fixtures/postcard.png', {force: true});
             cy.get('img').eq(2).should('exist').click();
             cy.get('#send').should('exist').click();
             cy.get('.modal').should('exist');

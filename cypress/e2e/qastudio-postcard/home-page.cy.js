@@ -4,11 +4,11 @@ describe('Отправка открытки', () => {
     });
 
     context('Главная страница', () => {
-        it('путь корректный', () => {
-           cy.location('pathname').should('eq', '/kot/edu/postcard/c28db484-454f-4450-bb46-60eddca1ebba/');
+        it('Путь корректный', () => {
+            cy.location('pathname').should('eq', '/kot/edu/postcard/c28db484-454f-4450-bb46-60eddca1ebba/');
         });
 
-        it('текст заголовков корректный', () => {
+        it('Текст заголовков корректный', () => {
             cy.get('h1').should('exist').contains('Форма отправки открытки с поздравлениями');
             cy.get('h2').eq(0).should('exist').contains('Email кому дарим');
             cy.get('h2').eq(1).should('exist').contains('Выберите открытку');
@@ -16,7 +16,7 @@ describe('Отправка открытки', () => {
             cy.get('h2').eq(3).should('exist').contains('Сообщение');
         });
 
-        it('кнопка', () => {
+        it('Текст кнопки корректный', () => {
             cy.get('#send').should('exist').contains('Отправить');
         });
     });
