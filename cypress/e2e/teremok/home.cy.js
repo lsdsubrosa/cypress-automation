@@ -2,12 +2,11 @@ let baseUrl = 'https://teremok.ru/';
 
 describe('Теремок. Домашняя страница', () => {
     beforeEach(() => {
-        // Cypress.config('baseUrl', baseUrl);
         cy.visit(baseUrl);
         cy.viewport(1920, 1080);
     });
 
-    context('Хедер', () => {
+    context('Домашняя страница', () => {
         it('Ответ 200', () => {
             cy.request('/').then((res) => {
                 cy.expect(res.status).eq(200);
@@ -18,7 +17,9 @@ describe('Теремок. Домашняя страница', () => {
             cy.location('host').should('equal', 'teremok.ru');
             cy.location('pathname').should('equal', '/');
         });
+    });
 
+    context('Хедер', () => {
         it('Текст корректный', () => {
             cy.get('a[class="b-header__logo"]').should('exist');
             cy.get('a[href="/forum/"]').should('exist').contains('ваше мнение');
@@ -26,6 +27,71 @@ describe('Теремок. Домашняя страница', () => {
             cy.get('a[href="/action/"]').should('exist').contains('акции');
             cy.get('a[href="/places/"]').should('exist').contains('наши теремки');
             cy.get('div[class="b-header__geo js-dropdown"]').should('exist');
+        });
+
+        it('Наше меню - выпадающий список', () => {
+            cy.get('.b-header__main-menu-btn').should('exist').trigger('mouseover');
+            cy.get('nav .b-main-menu').should('be.visible');
+            cy.get('ul .b-main-menu-head__list li').should('length', 5);
+            cy.get('ul .b-main-menu-head__list li').eq(0).contains('Новинки');
+            cy.get('ul .b-main-menu-head__list li').eq(1).contains('Завтраки');
+            cy.get('ul .b-main-menu-head__list li').eq(2).contains('Основное меню');
+            cy.get('ul .b-main-menu-head__list li').eq(3).contains('Домашние обеды');
+            cy.get('ul .b-main-menu-head__list li').eq(4).contains('Напитки');
+
+        });
+
+        it('Наше меню - выпадающий список - выпдающее меню', () => {
+            cy.get('.b-header__main-menu-btn').should('exist').trigger('mouseover');
+            cy.get('nav .b-main-menu').should('be.visible');
+
+            // Новинки
+            cy.get('ul .b-main-menu-head__list li').eq(0).contains('Новинки').trigger('mouseover');
+            cy.wait(1000);
+            cy.get('.b-main-menu-content').should('be.visible');
+
+            // Завтраки
+            cy.get('ul .b-main-menu-head__list li').eq(1).contains('Завтраки').trigger('mouseover');
+            cy.wait(1000);
+            cy.get('.b-main-menu-content').should('be.visible');
+            cy.get('.b-main-menu-subcategories__item').should('exist').should('length', 4);
+            cy.get('.b-main-menu-subcategories__item').eq(0).contains('Завтраки');
+            cy.get('.b-main-menu-subcategories__item').eq(2).contains('Добавки к Омлету с зеленью');
+
+            // Основное меню
+            cy.get('ul .b-main-menu-head__list li').eq(2).contains('Основное меню').trigger('mouseover');
+            cy.wait(1000);
+            cy.get('.b-main-menu-content').should('be.visible');
+            cy.get('.b-main-menu-subcategories__item').should('exist').should('length', 24);
+            cy.get('.b-main-menu-subcategories__item').eq(0).contains('Блины сытные');
+            cy.get('.b-main-menu-subcategories__item').eq(2).contains('Блины сладкие');
+            cy.get('.b-main-menu-subcategories__item').eq(4).contains('Салаты');
+            cy.get('.b-main-menu-subcategories__item').eq(6).contains('Супы');
+            cy.get('.b-main-menu-subcategories__item').eq(8).contains('Вторые блюда');
+            cy.get('.b-main-menu-subcategories__item').eq(10).contains('Пельмени');
+            cy.get('.b-main-menu-subcategories__item').eq(12).contains('Вареники');
+            cy.get('.b-main-menu-subcategories__item').eq(14).contains('Постное меню');
+            cy.get('.b-main-menu-subcategories__item').eq(16).contains('Сырники');
+            cy.get('.b-main-menu-subcategories__item').eq(18).should('not.visible');
+            cy.get('.b-main-menu-subcategories__item').eq(14).contains('Постное меню').click();
+            cy.wait(1000);
+            cy.get('.b-main-menu-subcategories__item').eq(18).should('be.visible').contains('Десерты и гурьевские каши');
+            cy.get('.b-main-menu-subcategories__item').eq(20).contains('Добавки в блины и каши');
+            cy.get('.b-main-menu-subcategories__item').eq(22).contains('Хлеб');
+
+            // Домашние обеды
+            cy.get('ul .b-main-menu-head__list li').eq(3).contains('Домашние обеды').trigger('mouseover');
+            cy.wait(1000);
+            cy.get('.b-main-menu-content').should('be.visible');
+
+            // Напитки
+            cy.get('ul .b-main-menu-head__list li').eq(4).contains('Напитки').trigger('mouseover');
+            cy.wait(1000);
+            cy.get('.b-main-menu-content').should('be.visible');
+            cy.get('.b-main-menu-subcategories__item').should('exist').should('length', 6);
+            cy.get('.b-main-menu-subcategories__item').eq(0).should('be.visible').contains('Горячие напитки');
+            cy.get('.b-main-menu-subcategories__item').eq(2).should('be.visible').contains('Фирменные напитки');
+            cy.get('.b-main-menu-subcategories__item').eq(4).should('be.visible').contains('Холодные напитки');
         });
     });
 
