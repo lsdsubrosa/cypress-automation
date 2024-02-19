@@ -25,3 +25,4 @@
               planet.cy.js
           teremok/
               home.cy.js
+              header-pages.cy.js
