@@ -26,3 +26,5 @@
           teremok/
               home.cy.js
               header-pages.cy.js
+          zemsBase-public/
+              main.cy.js
